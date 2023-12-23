@@ -27,3 +27,19 @@
  - Executed maintenance plan and checked it stored the appropriate .bak files in the container
  - Setup a weekly plan for backup of the database
 
+### Disaster Recovery Simulation
+ - Query the database:
+```
+SELECT * FROM Person.Address
+WHERE City = 'Seattle';
+```
+- Delete these records to simluate data loss:
+```
+DELETE FROM Person.Address
+WHERE City = 'Seattle';
+```
+- Confirm these records have been deleted by running the initial query again
+- Restored the Azure SQL Database from a previous point in time (one day ago selected)
+- Connect to the new restored database
+- Run the intial query to confirm the deleted data has been restored
+- Use this restored database as the new production database and delete the previous one via the Azure dashboard
