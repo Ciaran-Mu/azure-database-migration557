@@ -43,3 +43,16 @@ WHERE City = 'Seattle';
 - Connect to the new restored database
 - Run the intial query to confirm the deleted data has been restored
 - Use this restored database as the new production database and delete the previous one via the Azure dashboard
+
+### Geo Replication and Failover
+- Set up a new SQL server on Azure based in a different geographical region (US East) called `my-replication-server-6432`
+- In the production SQL database set up a replica to this newly created geo replication server
+- On production SQL server `my-sql-server-6432` set up a failover group with the geo replication server as secondary
+- On the secondary server check that it is in the failover group, and select that group
+- Initiate a failover using the 'Failover' button in AZure dashboard
+- Check that failover has completed successfully by connecting to the database in the geo replication server using Azure Data Studio and then running a few queries to confirm database contents and functionality, e.g. run this query again to check for the same 141 records:
+```
+SELECT * FROM Person.Address
+WHERE City = 'Seattle';
+```
+- Initiate failover again to failback to the original configuration of primary and secondary servers
