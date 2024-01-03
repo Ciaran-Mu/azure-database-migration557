@@ -17,7 +17,7 @@
  -  Right click on the connected database to get the 'Schema Compare' pane open and select the localhost as source and remote server on Azure as target
  -  Applied the schema compare to update changes to the target and confirmed the table names appeared under the connected database
  -  Installed Azure SQL Migration extension
- -  Followed the Migrate to Azure SQL wizard to migrate the localhost database to the Azure SQL server (which requires installation of Integration Runtime) [note: this was attempted 3 times on the current VM configuration and would result in the VM hanging ((azure studio would crash, then integration runtime would crash, and upon reloading everything the connection to azure account would need to be reconnected), after upgrading the VM once again to a higher tier ('Standard D4ds v5') it worked first time]
+ -  Followed the Migrate to Azure SQL wizard to migrate the localhost database to the Azure SQL server (which requires installation of Integration Runtime) [note: this was attempted 3 times on the current VM configuration and would result in the VM hanging (azure studio would crash, then integration runtime would crash, and upon reloading everything the connection to azure account would need to be reconnected), after upgrading the VM once again to a higher tier ('Standard D4ds v5') it worked first time]
  - Confirmed the data had transferred by runnning queries on localhost and Azure SQL server which returned the same results
 
 ### Data Backup and Restore
